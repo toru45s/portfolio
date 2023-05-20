@@ -1,0 +1,52 @@
+---
+import Information from "./Information.astro";
+
+export interface Props {
+  image: string;
+  title: string;
+  description: string;
+  href: string;
+  isRight?: boolean;
+}
+
+const { image, href, title, description, isRight } = Astro.props;
+
+const className = isRight ? "work work--right" : "work";
+---
+
+<li class={className}>
+  <a class="work__anchor" href={href}>
+    <div class="work__image">
+      <img src={image} alt={title} />
+    </div>
+
+    <div class="work__info">
+      <Information title={title} description={description} />
+    </div>
+  </a>
+</li>
+<style lang="scss">
+  .work {
+    width: 100%;
+    margin-bottom: 1.5rem;
+
+    &--right {
+      .work__anchor {
+        flex-direction: row-reverse;
+      }
+    }
+
+    &__anchor {
+      display: flex;
+    }
+
+    &__image {
+      width: 440px;
+      flex-shrink: 0;
+    }
+
+    &__info {
+      margin-left: 1.5rem;
+    }
+  }
+</style>

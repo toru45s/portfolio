@@ -1,0 +1,18 @@
+---
+export interface Props {
+  isFlex?: boolean;
+}
+
+const { isFlex } = Astro.props;
+---
+
+<div class={isFlex ? "section section--flex" : "section"}>
+  <slot />
+</div>
+<style lang="scss">
+  .section {
+    &--flex {
+      display: flex;
+    }
+  }
+</style>

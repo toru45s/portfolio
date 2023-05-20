@@ -1,0 +1,49 @@
+@import "variables";
+
+html {
+  font-family: "Roboto Mono", monospace, system-ui, sans-serif;
+  font-weight: 400;
+  background-color: #d3d3c9;
+  color: $keyColor;
+  line-height: $lineHeightSm;
+  font-feature-settings: "palt";
+  min-width: 350px;
+
+  ::selection {
+    background-color: #000;
+    color: #fff;
+  }
+}
+
+body {
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+code {
+  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
+    Bitstream Vera Sans Mono, Courier New, monospace;
+}
+
+img {
+  width: 100%;
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+ol,
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit; /* no underline */
+}

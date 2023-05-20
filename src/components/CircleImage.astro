@@ -1,0 +1,22 @@
+---
+export interface Props {
+  src: string;
+  alt: string;
+}
+
+const { src, alt } = Astro.props;
+---
+
+<div class="image" style=`background-image: url(${ src });`></div>
+
+<style lang="scss">
+  .image {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    overflow: hidden;
+
+    background-size: cover;
+    background-position: center;
+  }
+</style>
