@@ -6,3 +6,18 @@ $lineHeight: 1.5;
 $lineHeightLg: 1.8;
 
 $breakpoint: 1024px;
+
+// ブレイクポイントの定義
+$mediaQueryBreakpoint: (
+  sp: "screen and (max-width: 768px)",
+  pc: "screen and (min-width: 769px)",
+);
+
+/*
+ * メディアクエリを返す
+*/
+@mixin mq($breakpoint) {
+  @media #{map-get($mediaQueryBreakpoint, $breakpoint)} {
+    @content;
+  }
+}

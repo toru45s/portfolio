@@ -1,5 +1,6 @@
 ---
-import Information from "./Information.astro";
+import Information from "@components/Information.astro";
+import "@styles/variables.scss";
 
 export interface Props {
   image: string;
@@ -50,3 +51,6 @@ const className = isRight ? "work work--right" : "work";
     }
   }
 </style>
+<script>
+  console.log("hit");
+</script>
