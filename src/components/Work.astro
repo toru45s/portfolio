@@ -1,32 +1,36 @@
 ---
-import Information from "@components/Information.astro";
-import "@styles/variables.scss";
-
+import Information from "@/components/Information.astro";
+import Section from "@/layouts/Section.astro";
+import "@/styles/global.scss";
+import "@/styles/variables.scss";
 export interface Props {
   image: string;
   title: string;
-  description: string;
+  role: string;
+  comment: string;
   href: string;
   isRight?: boolean;
 }
 
-const { image, href, title, description, isRight } = Astro.props;
-
-const className = isRight ? "work work--right" : "work";
+const { image, href, title, role, comment, isRight } = Astro.props;
 ---
 
-<li class={className}>
-  <a class="work__anchor" href={href}>
+<li class={isRight ? "work work--right" : "work"}>
+  <a class="work__anchor" href={href} target="_blank" data-hover>
     <div class="work__image">
       <img src={image} alt={title} />
     </div>
-
-    <div class="work__info">
-      <Information title={title} description={description} />
-    </div>
   </a>
+
+  <div class="work__info">
+    <Information title={title} subTitle={role} href={href} data-hover />
+    <Section gap="xl">{comment}</Section>
+  </div>
 </li>
+
 <style lang="scss">
+  @use "@/styles/variables.scss" as *;
+
   .work {
     width: 100%;
     margin-bottom: 1.5rem;
@@ -38,22 +42,42 @@ const className = isRight ? "work work--right" : "work";
     }
 
     &__anchor {
-      display: flex;
+      position: relative;
+
+      &::after {
+        content: "";
+        mix-blend-mode: multiply;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        // background-color: $keyColor;
+      }
     }
 
     &__image {
-      width: 440px;
       flex-shrink: 0;
+      filter: grayscale(100%);
 
-      clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
-      clip-path: polygon(100% 0%, 75% 50%, 100% 100%, 25% 100%, 0% 50%, 25% 0%);
+      // clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+      // clip-path: polygon(100% 0%, 75% 50%, 100% 100%, 25% 100%, 0% 50%, 25% 0%);
     }
 
     &__info {
-      margin-left: 1.5rem;
+      position: relative;
+      width: 95%;
+      margin-top: -10px;
+      background-color: #fff;
+      // border: 5px solid orange;
+      // border-radius: 5px;
+      padding: 12px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
     }
   }
 </style>
-<script>
-  console.log("hit");
+
+<script lang="ts">
+  const hovers = document.querySelectorAll("[data-hover]");
+  console.log(hovers);
 </script>

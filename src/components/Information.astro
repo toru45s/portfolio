@@ -1,16 +1,39 @@
 ---
+import Icon from "@/assets/images/ico-external.svg";
+
 export interface Props {
   title: string;
-  description: string;
+  subTitle?: string;
   hasSpace?: boolean;
+  isTitle?: boolean;
+  href?: string;
 }
 
-const { title, description, hasSpace } = Astro.props;
+const { title, subTitle, hasSpace, isTitle, href } = Astro.props;
 ---
 
 <div class={hasSpace ? "info info--has-space" : "info"}>
-  <h2 class="info__title f-roboto">{title}</h2>
-  <p class="info__description f-roboto">{description}</p>
+  {
+    href && (
+      <a
+        href={href}
+        class="info__title info__title--link f-roboto"
+        target="_blank"
+      >
+        <span> {title}</span>
+
+        <span class="info__icon">
+          <img src={Icon} />
+        </span>
+      </a>
+    )
+  }
+
+  {isTitle && !href && <h1 class="info__title f-roboto">{title}</h1>}
+
+  {!isTitle && !href && <h2 class="info__title f-roboto">{title}</h2>}
+
+  <p class="info__subtitle f-roboto">{subTitle}</p>
 </div>
 
 <style lang="scss">
@@ -18,9 +41,21 @@ const { title, description, hasSpace } = Astro.props;
     &__title {
       font-size: 1rem;
       font-weight: 700;
+
+      &--link {
+        span {
+          text-decoration: underline;
+        }
+      }
     }
 
-    &__description {
+    &__icon {
+      display: inline-block;
+      width: 0.7rem;
+      height: 0.7rem;
+    }
+
+    &__subtitle {
       font-size: 1rem;
       font-weight: 400;
     }

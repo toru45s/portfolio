@@ -11,8 +11,10 @@ $breakpoint: 1024px;
 
 // ブレイクポイントの定義
 $mediaQueryBreakpoint: (
-  sp: "screen and (max-width: 768px)",
-  pc: "screen and (min-width: 769px)",
+  sm: "screen and (min-width: 640px)",
+  md: "screen and (min-width: 768px)",
+  lg: "screen and (min-width: 1024px)",
+  xl: "screen and (min-width: 1280px)",
 );
 
 /*

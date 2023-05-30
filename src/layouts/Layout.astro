@@ -1,7 +1,7 @@
 ---
-import Head from "@components/Head.astro";
-import "@styles/global.scss";
-import "@styles/variables.scss";
+import Head from "@/components/Head.astro";
+import "@/styles/global.scss";
+import "@/styles/variables.scss";
 
 export interface Props {
   title: string;
@@ -31,8 +31,8 @@ const { title } = Astro.props;
           position: sticky;
           top: 0;
           left: 0;
-          min-width: 400px;
-          width: math.div(400, 1280) * 100vw;
+          min-width: 380px;
+          width: math.div(380, 1280) * 100vw;
           border-right: 1px solid #666;
           padding: 1rem;
           height: 100vh;

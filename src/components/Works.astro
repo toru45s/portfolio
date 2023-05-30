@@ -1,63 +1,38 @@
 ---
-import image from "@assets/images/work.jpg";
-import Work from "@components/Work.astro";
+import Work from "@/components/Work.astro";
+import { getWorks } from "@/library/microcms";
+
+const response = await getWorks();
 ---
 
 <ul class="works">
-  <Work
-    description="design: maam inc.所属していたmaam incのウェブサイトです。CMSにwordpressを導入しています。通常の使い方ではなく、投稿した記事をAPIで配信し、モーダル内で読み込みして詳細を表示しています。ソート機能も実装。"
-    title="maam inc."
-    image={image}
-    href="https://www.google.com/"
-  />
-  <Work
-    description="design: maam inc."
-    title="maam inc."
-    image={image}
-    href="https://www.google.com/"
-    isRight
-  />
-  <Work
-    description="design: maam inc."
-    title="maam inc."
-    image={image}
-    href="https://www.google.com/"
-  />
-  <Work
-    description="design: maam inc."
-    title="maam inc."
-    image={image}
-    href="https://www.google.com/"
-    isRight
-  />
-  <Work
-    description="design: maam inc."
-    title="maam inc."
-    image={image}
-    href="https://www.google.com/"
-  />
-  <Work
-    description="design: maam inc."
-    title="maam inc."
-    image={image}
-    href="https://www.google.com/"
-    isRight
-  />
-  <Work
-    description="design: maam inc."
-    title="maam inc."
-    image={image}
-    href="https://www.google.com/"
-  />
-  <Work
-    description="design: maam inc."
-    title="maam inc."
-    image={image}
-    href="https://www.google.com/"
-    isRight
-  />
+  {
+    response.contents.map((work) => (
+      <Work
+        title={work.title}
+        role={work.role}
+        comment={work.comment}
+        image={work.image.url}
+        href={work.url}
+      />
+    ))
+  }
 </ul>
-<style>
+
+<style lang="scss">
+  @use "@/styles/variables.scss" as *;
+
   .works {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+
+    @include mq(md) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    @include mq(xl) {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
   }
 </style>
