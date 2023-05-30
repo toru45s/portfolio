@@ -1,10 +1,10 @@
 @import "variables";
 
 html {
-  font-family: "Roboto Mono", monospace, system-ui, sans-serif;
+  font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", sans-serif;
   font-weight: 400;
-  background-color: #d3d3c9;
-  color: $keyColor;
+  background-color: $bgColor;
+  color: $fontColor;
   line-height: $lineHeightSm;
   font-feature-settings: "palt";
   min-width: 350px;
@@ -21,10 +21,6 @@ body {
 
 * {
   box-sizing: border-box;
-}
-code {
-  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-    Bitstream Vera Sans Mono, Courier New, monospace;
 }
 
 img {
@@ -46,4 +42,8 @@ ul {
 a {
   color: inherit;
   text-decoration: inherit; /* no underline */
+}
+
+.f-roboto {
+  font-family: "Roboto Mono", monospace;
 }

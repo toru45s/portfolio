@@ -2,28 +2,31 @@
 export interface Props {
   title: string;
   description: string;
+  hasSpace?: boolean;
 }
 
-const { title, description } = Astro.props;
+const { title, description, hasSpace } = Astro.props;
 ---
 
-<div class="info">
-  <h2 class="info__title">{title}</h2>
-  <p class="info__description">{description}</p>
+<div class={hasSpace ? "info info--has-space" : "info"}>
+  <h2 class="info__title f-roboto">{title}</h2>
+  <p class="info__description f-roboto">{description}</p>
 </div>
 
-<style>
+<style lang="scss">
   .info {
     &__title {
       font-size: 1rem;
       font-weight: 700;
-      margin-bottom: 1rem;
     }
 
     &__description {
       font-size: 1rem;
       font-weight: 400;
-      margin-bottom: 1rem;
+    }
+
+    &--has-space {
+      padding: 18px 18px;
     }
   }
 </style>

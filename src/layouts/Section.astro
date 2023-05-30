@@ -1,18 +1,43 @@
 ---
 export interface Props {
-  isFlex?: boolean;
+  gap: "xs" | "sm" | "md" | "lg" | "xl";
 }
 
-const { isFlex } = Astro.props;
+const { gap } = Astro.props;
 ---
 
-<div class={isFlex ? "section section--flex" : "section"}>
+<div
+  class:list={[
+    "section",
+    {
+      "section--xs": gap === "xs",
+      "section--sm": gap === "sm",
+      "section--md": gap === "md",
+      "section--lg": gap === "lg",
+      "section--xl": gap === "xl",
+    },
+  ]}
+>
   <slot />
 </div>
+
 <style lang="scss">
   .section {
-    &--flex {
-      display: flex;
+    &--xs {
+      margin-top: 6px;
+    }
+    &--sm {
+      margin-top: 6 * 2px;
+    }
+    &--md {
+      margin-top: 6 * 3px;
+    }
+    &--lg {
+      margin-top: 6 * 4px;
+    }
+
+    &--xl {
+      margin-top: 6 * 5px;
     }
   }
 </style>

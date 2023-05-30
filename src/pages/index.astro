@@ -1,7 +1,7 @@
 ---
-import CircleImage from "@components/CircleImage.astro";
-import Information from "@components/Information.astro";
+import Profile from "@components/Profile.astro";
 import Splash from "@components/Splash.astro";
+import Text from "@components/Text.astro";
 import Works from "@components/Works.astro";
 import Layout from "@layouts/Layout.astro";
 import Section from "@layouts/Section.astro";
@@ -9,26 +9,25 @@ import Section from "@layouts/Section.astro";
 
 <Layout title="Portfolio site | Toru Yaginuma ✌🏻">
   <Fragment slot="side">
-    <Section isFlex>
-      <CircleImage
-        src="https://automaton-media.com/wp-content/uploads/2022/05/20220521-203445-001.jpg"
-        alt="me"
+    <Profile />
+    <Section gap="xl">
+      <Text text="初めまして！ 柳沼亨と申します。" />
+      <Text
+        text="現在は業務アプリ、CMS、コーポレートサイト、特設サイトの実装を軸に活動を行っております。"
       />
-      <Information title="Toru Yaginuma ✌🏻" description="Front-end Developer" />
+      <Text
+        text="要件を満たす実装は当然として、パフォーマンスと遊び心を両立したUIの実装をテーマに、より良いモノづくりを目指しています。"
+      />
     </Section>
-
-    <p>
-      初めまして！ 柳沼亨と申します。
-      現在は業務アプリ、CMS、コーポレートサイト、特設サイトの実装を軸に活動を行っております。
-      遊び心と人間味のあるアプリケーション、Webサイトが好みです。
-      要件を満たす実装は当然として、パフォーマンスと遊び心を両立したUIの実装をテーマに、より良いモノづくりを目指しています。
-    </p>
-    <p>
-      Experiences html pug ejs handlebars css scss stylus JavaScript Vanilla
-      JQuery Vue original 　 nuxt.js React original next.js React Native php
-      laravel CMS wordpress micro cms drupal NoCode STUDIOS
-    </p>
+    <Section gap="md">
+      <p>
+        Experiences html pug ejs handlebars css scss stylus JavaScript Vanilla
+        JQuery Vue original 　 nuxt.js React original next.js React Native php
+        laravel CMS wordpress micro cms drupal NoCode STUDIOS
+      </p>
+    </Section>
   </Fragment>
+
   <Works />
 </Layout>
 

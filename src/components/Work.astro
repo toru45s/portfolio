@@ -44,6 +44,9 @@ const className = isRight ? "work work--right" : "work";
     &__image {
       width: 440px;
       flex-shrink: 0;
+
+      clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+      clip-path: polygon(100% 0%, 75% 50%, 100% 100%, 25% 100%, 0% 50%, 25% 0%);
     }
 
     &__info {

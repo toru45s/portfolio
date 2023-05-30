@@ -1,0 +1,17 @@
+---
+export interface Props {
+  text: string;
+}
+
+const { text } = Astro.props;
+---
+
+<p class="text">{text}</p>
+
+<style lang="scss">
+  .text {
+    font-size: 1rem;
+    letter-spacing: 0.05em;
+    line-height: 1.6;
+  }
+</style>
