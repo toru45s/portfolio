@@ -7,12 +7,19 @@ export interface Props {
   hasSpace?: boolean;
   isTitle?: boolean;
   href?: string;
+  isPrimaryColor?: boolean;
 }
 
-const { title, subTitle, hasSpace, isTitle, href } = Astro.props;
+const { title, subTitle, hasSpace, isTitle, href, isPrimaryColor } =
+  Astro.props;
 ---
 
-<div class={hasSpace ? "info info--has-space" : "info"}>
+<div
+  class:list={[
+    hasSpace ? "info info--has-space" : "info",
+    { "info--primary": isPrimaryColor },
+  ]}
+>
   {
     href && (
       <a
@@ -37,7 +44,12 @@ const { title, subTitle, hasSpace, isTitle, href } = Astro.props;
 </div>
 
 <style lang="scss">
+  @use "@/styles/variables.scss" as *;
+
   .info {
+    &--primary {
+      color: $keyColor;
+    }
     &__title {
       font-size: 1rem;
       font-weight: 700;

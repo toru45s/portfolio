@@ -1,17 +1,25 @@
 ---
 export interface Props {
   text: string;
+  isPc?: boolean;
 }
 
-const { text } = Astro.props;
+const { text, isPc } = Astro.props;
 ---
 
-<p class="text">{text}</p>
+<p class:list={["text", { "text--pc": isPc }]}>{text}</p>
 
 <style lang="scss">
+  @use "@/styles/variables.scss" as *;
   .text {
     font-size: 1rem;
     letter-spacing: 0.05em;
     line-height: 1.6;
+    display: none;
+    &--pc {
+      @include mq(lg) {
+        display: block;
+      }
+    }
   }
 </style>

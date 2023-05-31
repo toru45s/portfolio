@@ -1,0 +1,24 @@
+---
+import Experience from "@/components/Experience.astro";
+import Profile from "@/components/Profile.astro";
+import Text from "@/components/Text.astro";
+import Layout from "@/layouts/Layout.astro";
+import Section from "@/layouts/Section.astro";
+---
+
+<Layout title="Portfolio site | Toru Yaginuma ✌🏻">
+  <Fragment slot="side">
+    <Profile />
+    <Section gap="xl">
+      <Text text="初めまして！ 柳沼亨と申します。" />
+      <Text
+        text="現在は業務アプリ、CMS、コーポレートサイト、特設サイトの実装を軸に活動を行っております。🙋‍♂️"
+      />
+    </Section>
+    <Section gap="md">
+      <Experience />
+    </Section>
+  </Fragment>
+
+  アバウトじゃアバウトじゃ
+</Layout>
