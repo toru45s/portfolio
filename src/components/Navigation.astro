@@ -1,0 +1,104 @@
+---
+import Information from "./Information.astro";
+
+export interface Props {
+  current: "works" | "about" | "contact";
+}
+
+const { current } = Astro.props;
+---
+
+<div class="navigation f-roboto">
+  <Information
+    title="Toru Yaginuma✌🏻"
+    subTitle="Frontend Developer"
+    isPrimaryColor
+    isTitle
+  />
+  <ul class="navigation__lists">
+    <li>
+      <a
+        class:list={[
+          "navigation__anchor",
+          { "navigation__anchor--current": current === "works" },
+        ]}
+        href="/">works</a
+      >
+    </li>
+    <li>
+      <a
+        class:list={[
+          "navigation__anchor",
+          { "navigation__anchor--current": current === "about" },
+        ]}
+        href="/about">about</a
+      >
+    </li>
+    <li>
+      <a
+        class:list={[
+          "navigation__anchor",
+          { "navigation__anchor--current": current === "contact" },
+        ]}
+        href="/contact">contact</a
+      >
+    </li>
+  </ul>
+</div>
+<style lang="scss">
+  .navigation {
+    display: inline-block;
+    position: sticky;
+    top: 1rem;
+    background: #fff;
+    border: 2px solid $keyColor;
+    padding: 1rem;
+    color: $keyColor;
+    z-index: 1;
+    width: auto;
+
+    @include mq(sm) {
+      // position: fixed;
+      // top: 0;
+      // left: 0;
+      // bottom: 1rem;
+      // right: 1rem;
+    }
+
+    &__lists {
+      margin: 0;
+      font-weight: 300;
+    }
+
+    &__anchor {
+      position: relative;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 15%;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 0%;
+        height: 2px;
+        background: $keyColor;
+        margin: auto;
+      }
+
+      &:hover {
+        &::after {
+          width: 100%;
+        }
+      }
+
+      &--current {
+        pointer-events: none;
+
+        &::after {
+          width: 100%;
+        }
+      }
+    }
+  }
+</style>

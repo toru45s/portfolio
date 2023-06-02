@@ -1,4 +1,5 @@
-@import "variables";
+@use "sass:math";
+@import "./variables";
 
 html {
   font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", sans-serif;

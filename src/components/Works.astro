@@ -20,13 +20,13 @@ const response = await getWorks();
 </ul>
 
 <style lang="scss">
-  @use "@/styles/variables.scss" as *;
-
   .works {
+    position: relative;
     display: grid;
+    width: 100%;
     gap: 1rem;
     grid-template-columns: repeat(1, minmax(0, 1fr));
-    margin: 0;
+    margin: 1rem 0 0;
 
     @include mq(md) {
       grid-template-columns: repeat(2, minmax(0, 1fr));

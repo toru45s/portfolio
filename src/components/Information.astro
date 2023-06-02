@@ -40,12 +40,10 @@ const { title, subTitle, hasSpace, isTitle, href, isPrimaryColor } =
 
   {!isTitle && !href && <h2 class="info__title f-roboto">{title}</h2>}
 
-  <p class="info__subtitle f-roboto">{subTitle}</p>
+  <p class="info__subtitle">{subTitle}</p>
 </div>
 
 <style lang="scss">
-  @use "@/styles/variables.scss" as *;
-
   .info {
     &--primary {
       color: $keyColor;
@@ -69,7 +67,6 @@ const { title, subTitle, hasSpace, isTitle, href, isPrimaryColor } =
 
     &__subtitle {
       font-size: 1rem;
-      font-weight: 400;
     }
 
     &--has-space {

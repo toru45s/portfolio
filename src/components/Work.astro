@@ -1,8 +1,7 @@
 ---
 import Information from "@/components/Information.astro";
 import Section from "@/layouts/Section.astro";
-import "@/styles/global.scss";
-import "@/styles/variables.scss";
+
 export interface Props {
   image: string;
   title: string;
@@ -16,21 +15,19 @@ const { image, href, title, role, comment, isRight } = Astro.props;
 ---
 
 <li class={isRight ? "work work--right" : "work"}>
-  <a class="work__anchor" href={href} target="_blank" data-hover>
+  <a class="work__anchor" href={href} target="_blank">
     <div class="work__image">
       <img src={image} alt={title} />
     </div>
   </a>
 
   <div class="work__info">
-    <Information title={title} subTitle={role} href={href} data-hover />
-    <Section gap="xl">{comment}</Section>
+    <Information title={title} subTitle={role} href={href} isPrimaryColor />
+    <Section gap="sm">{comment}</Section>
   </div>
 </li>
 
 <style lang="scss">
-  @use "@/styles/variables.scss" as *;
-
   .work {
     width: 100%;
     margin-bottom: 1.5rem;
@@ -59,20 +56,21 @@ const { image, href, title, role, comment, isRight } = Astro.props;
     &__image {
       flex-shrink: 0;
       filter: grayscale(100%);
-
+      // width: 95%;
+      margin: auto;
       // clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
       // clip-path: polygon(100% 0%, 75% 50%, 100% 100%, 25% 100%, 0% 50%, 25% 0%);
     }
 
     &__info {
       position: relative;
-      width: 95%;
-      margin-top: -10px;
-      background-color: #fff;
-      // border: 5px solid orange;
-      // border-radius: 5px;
+
+      // margin-top: -50px;
+      // background-color: #fff;
+      // border: 1px solid $keyColor;
+      color: $keyColor;
       padding: 12px;
-      box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+      // box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
     }
   }
 </style>
