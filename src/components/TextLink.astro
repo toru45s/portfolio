@@ -1,0 +1,48 @@
+---
+export interface Props {
+  href?: string;
+  isBlock?: boolean;
+  isCurrent?: boolean;
+}
+
+const { href, isBlock, isCurrent } = Astro.props;
+const isExternal = href?.indexOf("http") !== -1;
+---
+
+<a
+  class:list={[
+    "text-link f-roboto",
+    { "text-link--block": isBlock },
+    { "text-link--current": isCurrent },
+  ]}
+  href={href}
+  target={isExternal ? "_blank" : undefined}
+>
+  <slot />
+</a>
+
+<style lang="scss">
+  .text-link {
+    display: inline;
+    color: $color-primary;
+    font-weight: map-get($font-weight, thin);
+    @include strike-out-line;
+
+    &:hover {
+      &::after {
+        width: 100%;
+      }
+    }
+
+    &--block {
+      display: block;
+    }
+    &--current {
+      pointer-events: none;
+
+      &::after {
+        width: 100%;
+      }
+    }
+  }
+</style>

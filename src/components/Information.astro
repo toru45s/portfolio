@@ -3,22 +3,14 @@ import IconExternal from "@/components/IconExternal.astro";
 export interface Props {
   title: string;
   subTitle?: string;
-  hasSpace?: boolean;
   isTitle?: boolean;
   href?: string;
-  isPrimaryColor?: boolean;
 }
 
-const { title, subTitle, hasSpace, isTitle, href, isPrimaryColor } =
-  Astro.props;
+const { title, subTitle, isTitle, href } = Astro.props;
 ---
 
-<div
-  class:list={[
-    hasSpace ? "info info--has-space" : "info",
-    { "info--primary": isPrimaryColor },
-  ]}
->
+<div class:list={["info"]}>
   {
     href && (
       <a
@@ -44,19 +36,22 @@ const { title, subTitle, hasSpace, isTitle, href, isPrimaryColor } =
 
 <style lang="scss">
   .info {
-    &--primary {
-      color: $color-primary;
-    }
     &__title {
       position: relative;
       font-size: map-get($font-size, md);
       font-weight: map-get($font-weight, bold);
-
+      color: $color-primary;
       &--link {
         span {
           text-decoration: underline;
         }
       }
+    }
+
+    &__subtitle {
+      color: $color-primary;
+      font-size: map-get($font-size, md);
+      font-weight: map-get($font-weight, bold);
     }
 
     &__icon {
@@ -66,15 +61,6 @@ const { title, subTitle, hasSpace, isTitle, href, isPrimaryColor } =
       display: inline-block;
       width: 0.6em;
       height: 0.6em;
-    }
-
-    &__subtitle {
-      font-size: map-get($font-size, md);
-      font-weight: map-get($font-weight, bold);
-    }
-
-    &--has-space {
-      padding: 18px 18px;
     }
   }
 </style>

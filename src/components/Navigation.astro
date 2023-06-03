@@ -1,5 +1,6 @@
 ---
-import Information from "./Information.astro";
+import Information from "@/components/Information.astro";
+import TextLink from "@/components/TextLink.astro";
 
 export interface Props {
   current: "works" | "about" | "contact";
@@ -9,39 +10,18 @@ const { current } = Astro.props;
 ---
 
 <div class="navigation f-roboto">
-  <Information
-    title="Toru Yaginuma✌🏻"
-    subTitle="Frontend Developer"
-    isPrimaryColor
-    isTitle
-  />
+  <Information title="Toru Yaginuma✌🏻" subTitle="Frontend Developer" />
   <ul class="navigation__lists">
     <li>
-      <a
-        class:list={[
-          "navigation__anchor",
-          { "navigation__anchor--current": current === "works" },
-        ]}
-        href="/">works</a
-      >
+      <TextLink href="/" isCurrent={current === "works"}>works</TextLink>
     </li>
     <li>
-      <a
-        class:list={[
-          "navigation__anchor",
-          { "navigation__anchor--current": current === "about" },
-        ]}
-        href="/about">about</a
-      >
+      <TextLink href="/about" isCurrent={current === "about"}>about</TextLink>
     </li>
     <li>
-      <a
-        class:list={[
-          "navigation__anchor",
-          { "navigation__anchor--current": current === "contact" },
-        ]}
-        href="/contact">contact</a
-      >
+      <TextLink href="/contact" isCurrent={current === "contact"}>
+        contact
+      </TextLink>
     </li>
   </ul>
 </div>
@@ -51,12 +31,11 @@ const { current } = Astro.props;
     background: #fff;
     border: 2px solid $color-primary;
     padding: map-get($margin, 1);
-    color: $color-primary;
     z-index: map-get($z-index, base);
 
     &__lists {
       margin: map-get($margin, 0.25) 0 0 0;
-      font-weight: 300;
+      font-weight: map-get($font-weight, thin);
     }
 
     &__anchor {

@@ -1,4 +1,5 @@
 ---
+import TextLink from "@/components/TextLink.astro";
 export interface Props {
   current: "ja" | "en";
 }
@@ -6,22 +7,11 @@ export interface Props {
 const { current } = Astro.props;
 ---
 
-<div class="language f-roboto">
-  <a
-    class:list={[
-      "language__anchor",
-      { "language__anchor--current": current === "en" },
-    ]}
-    href="/en">EN</a
-  >
-  /
-  <a
-    class:list={[
-      "language__anchor",
-      { "language__anchor--current": current === "ja" },
-    ]}
-    href="/">JA</a
-  >
+<div class="language">
+  <TextLink href="/en" isCurrent={current === "en"}>EN</TextLink>
+
+  |
+  <TextLink href="/" isCurrent={current === "ja"}>JA</TextLink>
 </div>
 
 <style lang="scss">

@@ -1,0 +1,54 @@
+---
+export interface Props {
+  type?: "section" | "block" | "sub-block" | "sub-sub-block";
+  text?: string;
+}
+
+const { type = "section", text } = Astro.props;
+---
+
+{
+  type === "section" && (
+    <h2 class:list={["heading heading--section"]}>{text}</h2>
+  )
+}
+
+{type === "block" && <h3 class:list={["heading heading--block"]}>{text}</h3>}
+
+{
+  type === "sub-block" && (
+    <h4 class:list={["heading heading--sub-block"]}>
+      {text}
+      <slot />
+    </h4>
+  )
+}
+
+{
+  type === "sub-sub-block" && (
+    <h5 class:list={["heading heading--sub-sub-block"]}>
+      {text}
+      <slot />
+    </h5>
+  )
+}
+
+<style lang="scss">
+  .heading {
+    &--section {
+      font-size: map-get($font-size, xl);
+    }
+
+    &--block {
+      font-size: map-get($font-size, lg);
+    }
+
+    &--sub-block {
+      font-size: map-get($font-size, md);
+    }
+
+    &--sub-sub-block {
+      font-size: map-get($font-size, md);
+    }
+  }
+</style>

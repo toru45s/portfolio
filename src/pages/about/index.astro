@@ -1,14 +1,19 @@
 ---
+import Heading from "@/components/Heading.astro";
+import Text from "@/components/Text.astro";
+import TextLink from "@/components/TextLink.astro";
 import Layout from "@/layouts/Layout.astro";
 ---
 
 <Layout title="about | Toru Yaginuma✌🏻" current="about">
-  <h2>初めまして</h2>
+  <Heading text="初めまして" type="section" />
+  <Heading text="フロントエンドエンジニアの柳沼亨と申します。🙋‍♂️" type="block" />
+  <Text size="md">
+    東京都内の会社でフロントエンジニアとして働きながら活動を行なっております。
+  </Text>
   <div class="block">
-    <h3>フロントエンドエンジニアの柳沼亨と申します。🙋‍♂️</h3>
-    <p>
-      東京都内の会社でフロントエンジニアとして働きながら活動を行なっております。
-    </p>
+    <h3></h3>
+    <p></p>
     <p>
       Worksには公開案件のみを掲載しております。
       業務アプリの非公開の実績に関してはおと岩瀬いただければ幸いです。
@@ -27,9 +32,10 @@ import Layout from "@/layouts/Layout.astro";
     <p>細かく配慮がされたウェブアプリケーションが好きです。</p>
 
     <div>
-      <a href="https://github.com/t-yaginuma">git hub</a>
-      <a href="https://www.linkedin.com/in/toru-yaginuma-8124a8277/">linkedin</a
-      >
+      <TextLink href="https://github.com/t-yaginuma">git hub</TextLink>
+      <TextLink href="https://www.linkedin.com/in/toru-yaginuma-8124a8277/">
+        linkedin
+      </TextLink>
     </div>
   </div>
 
