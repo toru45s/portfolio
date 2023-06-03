@@ -1,16 +1,21 @@
 @use "sass:math";
 @import "./variables";
+@import "./mixins";
 
 html {
-  font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", sans-serif;
-  font-weight: 400;
-  background-color: $bgColor;
-  color: $fontColor;
-  line-height: $lineHeightSm;
+  font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", system-ui,
+    sans-serif;
+  font-size: $font-size-base;
+  font-weight: map-get($font-weight, regular);
+  background-color: $color-white;
+  color: $color-font;
+  line-height: map-get($leading, normal);
   font-feature-settings: "palt";
-  min-width: 350px;
+  letter-spacing: 0.05em;
+  min-height: 100vh;
+  min-width: $min-width;
 
-  ::selection {
+  &::selection {
     background-color: #000;
     color: #fff;
   }

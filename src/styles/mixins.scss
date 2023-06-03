@@ -1,0 +1,49 @@
+// mixin
+@mixin hover-basic {
+  opacity: 1;
+  transition: opacity 160ms $ease-out-quad;
+
+  &:hover {
+    opacity: 0.6;
+  }
+}
+
+/*
+ * メディアクエリを返す
+*/
+@mixin mq($breakpoint) {
+  @media #{map-get($mq-breakpoint, $breakpoint)} {
+    @content;
+  }
+}
+
+/*
+ * vw計算
+*/
+@function vw($width: 0) {
+  @return math.div($width, $artboard-width) * 100vw;
+}
+
+/*
+ * %計算
+*/
+@function percent($width: 0) {
+  @return math.div($width, $artboard-width) * 100%;
+}
+
+@mixin strike-out-line {
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 15%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 0%;
+    height: 2px;
+    background: $color-primary;
+    margin: auto;
+  }
+}

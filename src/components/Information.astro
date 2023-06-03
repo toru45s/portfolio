@@ -1,6 +1,5 @@
 ---
-import Icon from "@/assets/images/ico-external.svg";
-
+import IconExternal from "@/components/IconExternal.astro";
 export interface Props {
   title: string;
   subTitle?: string;
@@ -30,7 +29,7 @@ const { title, subTitle, hasSpace, isTitle, href, isPrimaryColor } =
         <span> {title}</span>
 
         <span class="info__icon">
-          <img src={Icon} />
+          <IconExternal />
         </span>
       </a>
     )
@@ -40,17 +39,18 @@ const { title, subTitle, hasSpace, isTitle, href, isPrimaryColor } =
 
   {!isTitle && !href && <h2 class="info__title f-roboto">{title}</h2>}
 
-  <p class="info__subtitle">{subTitle}</p>
+  <p class="info__subtitle f-roboto">{subTitle}</p>
 </div>
 
 <style lang="scss">
   .info {
     &--primary {
-      color: $keyColor;
+      color: $color-primary;
     }
     &__title {
-      font-size: 1rem;
-      font-weight: 700;
+      position: relative;
+      font-size: map-get($font-size, md);
+      font-weight: map-get($font-weight, bold);
 
       &--link {
         span {
@@ -60,13 +60,17 @@ const { title, subTitle, hasSpace, isTitle, href, isPrimaryColor } =
     }
 
     &__icon {
+      position: relative;
+      top: -2px;
+      left: -2px;
       display: inline-block;
-      width: 0.7rem;
-      height: 0.7rem;
+      width: 0.6em;
+      height: 0.6em;
     }
 
     &__subtitle {
-      font-size: 1rem;
+      font-size: map-get($font-size, md);
+      font-weight: map-get($font-weight, bold);
     }
 
     &--has-space {

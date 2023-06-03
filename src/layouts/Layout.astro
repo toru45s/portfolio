@@ -1,26 +1,43 @@
 ---
 import Head from "@/components/Head.astro";
+import Language from "@/components/Language.astro";
+import Navigation from "@/components/Navigation.astro";
 
 export interface Props {
   title: string;
+  current: "works" | "about" | "contact";
 }
 
-const { title } = Astro.props;
+const { title, current } = Astro.props;
 ---
 
 <!DOCTYPE html>
 <html lang="en">
   <Head title={title} />
-
   <body>
     <div class="layout">
-      <slot />
-    </div>
+      <header class="layout__header">
+        <Navigation current={current} />
+        <Language current="ja" />
+      </header>
 
+      <main class="layout__main"><slot /></main>
+    </div>
     <style lang="scss">
       .layout {
         width: 100%;
-        padding: 1rem;
+        padding: map-get($margin, 1);
+
+        &__header {
+          display: flex;
+          justify-content: space-between;
+          position: sticky;
+          top: 1rem;
+          z-index: map-get($z-index, base);
+        }
+        &__main {
+          margin-top: map-get($margin, 2);
+        }
       }
     </style>
   </body>

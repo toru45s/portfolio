@@ -1,25 +1,76 @@
 ---
 export interface Props {
-  text: string;
-  isPc?: boolean;
+  size: "xxs" | "xs" | "sm" | "md" | "lg" | "xl" | "xxl";
+  margin?: 0.5 | 1 | 1.5 | 2;
 }
 
-const { text, isPc } = Astro.props;
+const { size, margin } = Astro.props;
 ---
 
-<p class:list={["text", { "text--pc": isPc }]}>{text}</p>
+<p
+  class:list={[
+    "text",
+    { "text--xs": size === "xs" },
+    { "text--sm": size === "sm" },
+    { "text--md": size === "md" },
+    { "text--lg": size === "lg" },
+    { "text--xl": size === "xl" },
+    { "text--xxl": size === "xxl" },
+    { "text--margin-half": margin === 0.5 },
+    { "text--margin-full": margin === 1 },
+    { "text--margin-full-lg": margin === 1.5 },
+    { "text--margin-double": margin === 2 },
+  ]}
+>
+  <slot />
+</p>
 
 <style lang="scss">
-  @use "@/styles/variables.scss" as *;
   .text {
-    font-size: 1rem;
-    letter-spacing: 0.05em;
-    line-height: 1.6;
-    display: none;
-    &--pc {
-      @include mq(lg) {
-        display: block;
-      }
+    color: $color-font;
+
+    &--xxs {
+      font-size: map-get($font-size, xxs);
+    }
+
+    &--xs {
+      font-size: map-get($font-size, xs);
+    }
+
+    &--sm {
+      font-size: map-get($font-size, sm);
+    }
+
+    &--md {
+      font-size: map-get($font-size, md);
+    }
+
+    &--lg {
+      font-size: map-get($font-size, lg);
+    }
+
+    &--xl {
+      font-size: map-get($font-size, xl);
+    }
+
+    &--xxl {
+      font-size: map-get($font-size, xxl);
+    }
+
+    &--margin-half {
+      margin-top: map-get($margin, 0.5);
+    }
+
+    &--margin-full {
+      margin-top: map-get($margin, 1);
+    }
+
+    &--margin-full-half {
+      margin-top: map-get($margin, 1.5);
+    }
+
+    &--margin-double {
+      margin-top: map-get($margin, 2);
     }
   }
 </style>

@@ -48,43 +48,19 @@ const { current } = Astro.props;
 <style lang="scss">
   .navigation {
     display: inline-block;
-    position: sticky;
-    top: 1rem;
     background: #fff;
-    border: 2px solid $keyColor;
-    padding: 1rem;
-    color: $keyColor;
-    z-index: 1;
-    width: auto;
-
-    @include mq(sm) {
-      // position: fixed;
-      // top: 0;
-      // left: 0;
-      // bottom: 1rem;
-      // right: 1rem;
-    }
+    border: 2px solid $color-primary;
+    padding: map-get($margin, 1);
+    color: $color-primary;
+    z-index: map-get($z-index, base);
 
     &__lists {
-      margin: 0;
+      margin: map-get($margin, 0.25) 0 0 0;
       font-weight: 300;
     }
 
     &__anchor {
-      position: relative;
-
-      &::after {
-        content: "";
-        position: absolute;
-        top: 15%;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        width: 0%;
-        height: 2px;
-        background: $keyColor;
-        margin: auto;
-      }
+      @include strike-out-line;
 
       &:hover {
         &::after {

@@ -1,6 +1,6 @@
 ---
 import Information from "@/components/Information.astro";
-import Section from "@/layouts/Section.astro";
+import Text from "@/components/Text.astro";
 
 export interface Props {
   image: string;
@@ -23,54 +23,28 @@ const { image, href, title, role, comment, isRight } = Astro.props;
 
   <div class="work__info">
     <Information title={title} subTitle={role} href={href} isPrimaryColor />
-    <Section gap="sm">{comment}</Section>
+    <Text size="md">{comment}</Text>
   </div>
 </li>
 
 <style lang="scss">
   .work {
-    width: 100%;
-    margin-bottom: 1.5rem;
-
-    &--right {
-      .work__anchor {
-        flex-direction: row-reverse;
-      }
-    }
-
     &__anchor {
       position: relative;
-
-      &::after {
-        content: "";
-        mix-blend-mode: multiply;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        // background-color: $keyColor;
-      }
     }
 
     &__image {
-      flex-shrink: 0;
-      filter: grayscale(100%);
-      // width: 95%;
+      width: 75%;
+      height: 0;
+      padding-bottom: 40%;
       margin: auto;
-      // clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
-      // clip-path: polygon(100% 0%, 75% 50%, 100% 100%, 25% 100%, 0% 50%, 25% 0%);
+      clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
     }
 
     &__info {
       position: relative;
-
-      // margin-top: -50px;
-      // background-color: #fff;
-      // border: 1px solid $keyColor;
-      color: $keyColor;
-      padding: 12px;
-      // box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+      margin-top: map-get($margin, 1);
+      color: $color-primary;
     }
   }
 </style>
