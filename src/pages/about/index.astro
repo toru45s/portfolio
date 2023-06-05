@@ -1,123 +1,45 @@
 ---
-import Heading from "@/components/Heading.astro";
 import Text from "@/components/Text.astro";
 import TextLink from "@/components/TextLink.astro";
+import Block from "@/layouts/Block.astro";
 import Layout from "@/layouts/Layout.astro";
+import Section from "@/layouts/Section.astro";
 ---
 
 <Layout title="about | Toru Yaginuma✌🏻" current="about">
-  <Heading text="初めまして" type="section" />
-  <Heading text="フロントエンドエンジニアの柳沼亨と申します。🙋‍♂️" type="block" />
-  <Text size="md">
-    東京都内の会社でフロントエンジニアとして働きながら活動を行なっております。
-  </Text>
-  <div class="block">
-    <h3></h3>
-    <p></p>
-    <p>
-      Worksには公開案件のみを掲載しております。
-      業務アプリの非公開の実績に関してはおと岩瀬いただければ幸いです。
-    </p>
-    <p>
-      現在は業務アプリ、CMS、コーポレートサイト、特設サイトの実装を軸に活動を行っております。
-    </p>
-
-    <h3>デザインシステムを考えることが好き🤞🏻</h3>
-    <p>
-      要件を満たす実装は当然として、パフォーマンスと遊び心を両立したUIの実装をテーマに、より良いモノづくりを目指しています。
-    </p>
-
-    <h3>気持ちの良いインタラクションが好き😄</h3>
-    <p>遊び心と人間味のあるアプリケーション、Webサイトが好みです。</p>
-    <p>細かく配慮がされたウェブアプリケーションが好きです。</p>
-
+  <Section heading="about">
     <div>
-      <TextLink href="https://github.com/t-yaginuma">git hub</TextLink>
+      <TextLink href="https://github.com/t-yaginuma">github</TextLink>
       <TextLink href="https://www.linkedin.com/in/toru-yaginuma-8124a8277/">
         linkedin
       </TextLink>
     </div>
-  </div>
 
-  <div class="block">
-    <h2>経験</h2>
-    <h3>言語・ツール</h3>
-    <ul>
-      <li>html</li>
-      <ul>
-        <li>pug</li>
-        <li>ejs</li>
-        <li>handlebars</li>
-      </ul>
+    <Block heading="初めまして" layout="stack">
+      <Block
+        heading="フロントエンドエンジニアの柳沼亨と申します。🙋‍♂️"
+        isSubBlock
+      >
+        <Text size="md">
+          Worksには公開案件のみを掲載しております。
+          業務アプリの非公開の実績に関してはおと岩瀬いただければ幸いです。
+        </Text>
+      </Block>
+      <Block heading="デザインシステムを考えることが好き🤞🏻" isSubBlock>
+        <Text size="md">
+          Worksには公開案件のみを掲載しております。
+          業務アプリの非公開の実績に関してはおと岩瀬いただければ幸いです。
+        </Text>
+      </Block>
+      <Block heading="気持ちの良いインタラクションが好き😄" isSubBlock>
+        <Text size="md">
+          遊び心と人間味のあるアプリケーション、Webサイトが好みです。細かく配慮がされたウェブアプリケーションが好きです。
+        </Text>
+      </Block>
+    </Block>
 
-      <li>css</li>
-      <ul>
-        <li>scss</li>
-        <li>stylus</li>
-      </ul>
-      <li>JavaScript</li>
-      <ul>
-        <li>Vanilla</li>
-        <li>JQuery</li>
-        <li>Vue</li>
-        <li>React</li>
-      </ul>
-      <li>Git</li>
-      <ul>
-        <li>git hub</li>
-        <li>git lab</li>
-        <li>bit bucket</li>
-      </ul>
-      <li>php</li>
-      <ul>
-        <li>laravel</li>
-      </ul>
-      <li>CMS</li>
-      <ul>
-        <li>wordpress</li>
-        <li>microCMS</li>
-      </ul>
+    <Block heading="経験">経験を書く</Block>
 
-      <li>NoCode</li>
-      <ul>
-        <li>STUDIO</li>
-      </ul>
-    </ul>
-    <h3>略歴</h3>
-    <ul>
-      <li>音楽大学を卒業</li>
-      <li>２０代を作曲家として活動</li>
-      <ul>
-        <li>自身の音楽活動</li>
-        <li>企業や個人の映像作品への提供</li>
-        <li>
-          日本各所、シカゴ、ロサンゼルス、トロント、バンコクでのライブも経験
-        </li>
-      </ul>
-      <li>ネットワークエンジニアに転職</li>
-      <ul>
-        <li>L1 - L3の運用、構築、設計フェーズを経験</li>
-        <li>金融、社内ネットワークを経験</li>
-      </ul>
-      <li>フロントエンジニアに転職</li>
-      <ul>
-        <li>アパレル業界の特設ページを中心に実装</li>
-        <li>業務アプリのフロントエンド開発</li>
-        <li>現在に至る</li>
-      </ul>
-    </ul>
-  </div>
-
-  <div class="block">
-    <h2>好き</h2>
-    <ul>
-      <li>音楽</li>
-      <li>読書</li>
-      <li>自転車</li>
-      <li>ハイキング</li>
-      <li>自然</li>
-      <li>トレーニング</li>
-      <li>温泉</li>
-    </ul>
-  </div>
+    <Block heading="こんな人です。">経験を書く</Block>
+  </Section>
 </Layout>

@@ -1,6 +1,6 @@
 ---
-import Information from "@/components/Information.astro";
-import Text from "@/components/Text.astro";
+// import Information from "@/components/Information.astro";
+// import Text from "@/components/Text.astro";
 
 export interface Props {
   image: string;
@@ -8,13 +8,12 @@ export interface Props {
   role: string;
   comment: string;
   href: string;
-  isRight?: boolean;
 }
 
-const { image, href, title, role, comment, isRight } = Astro.props;
+const { image, href, title, role, comment } = Astro.props;
 ---
 
-<li class={isRight ? "work work--right" : "work"}>
+<li class="work">
   <a class="work__anchor" href={href} target="_blank">
     <div class="work__image">
       <img src={image} alt={title} />
@@ -22,8 +21,8 @@ const { image, href, title, role, comment, isRight } = Astro.props;
   </a>
 
   <div class="work__info">
-    <Information title={title} subTitle={role} href={href} isPrimaryColor />
-    <Text size="md">{comment}</Text>
+    <!-- <Information title={title} subTitle={role} href={href} />
+    <Text size="md">{comment}</Text> -->
   </div>
 </li>
 
@@ -34,11 +33,12 @@ const { image, href, title, role, comment, isRight } = Astro.props;
     }
 
     &__image {
-      width: 75%;
+      // width: 75%;
       height: 0;
       padding-bottom: 40%;
-      margin: auto;
-      clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+      overflow: hidden;
+      // margin: auto;
+      // clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
     }
 
     &__info {

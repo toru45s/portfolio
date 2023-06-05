@@ -1,8 +1,40 @@
+---
+import Heading from "@/components/Heading.astro";
+export interface Props {
+  heading: string;
+  isSubBlock?: boolean;
+  layout?: "stack";
+}
+
+const { heading, isSubBlock, layout } = Astro.props;
+---
+
 <div class="block">
-  <slot />
+  <Heading type={isSubBlock ? "sub-block" : "block"} text={heading} />
+  <div
+    class:list={[
+      "block__content",
+      { "block__content--stack": layout === "stack" },
+      { "block__content--sub": isSubBlock },
+    ]}
+  >
+    <slot />
+  </div>
 </div>
 
 <style lang="scss">
   .block {
+    &__content {
+      margin-top: map-get($margin, 0.75);
+      &--stack {
+        display: flex;
+        flex-direction: column;
+        gap: map-get($margin, 1);
+      }
+
+      &--sub {
+        margin-top: map-get($margin, 0.25);
+      }
+    }
   }
 </style>

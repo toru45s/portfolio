@@ -33,6 +33,8 @@
 
 @mixin strike-out-line {
   position: relative;
+  display: inline-block;
+  width: auto;
 
   &::after {
     content: "";

@@ -1,29 +1,20 @@
 ---
-import Heading from "@/components/Heading.astro";
 import Text from "@/components/Text.astro";
 import TextLink from "@/components/TextLink.astro";
+import Block from "@/layouts/Block.astro";
 import Layout from "@/layouts/Layout.astro";
+import Section from "@/layouts/Section.astro";
 ---
 
 <Layout title="contact| Toru Yaginuma✌🏻" current="contact">
-  <Heading type="section" text="お問合せ" />
-  <Heading type="block" text="デザインについて😄" />
-  <Text size="md">
-    「シンプルな中にユニークさ・目新しさを生み出す」をモットーにしています。
-    演出についても必要な箇所に絞り、効果的に表現付けしていきます。
-    コテコテ派手なデザインは対応しておりません。
-  </Text>
-
-  <Heading type="block" text="対応状況について😄" />
-
-  <Text size="md">
-    「シンプルな中にユニークさ・目新しさを生み出す」をモットーにしています。
-    演出についても必要な箇所に絞り、効果的に表現付けしていきます。
-    コテコテ派手なデザインは対応しておりません。
-  </Text>
-
-  <div class="block">
-    <h3>ご依頼・ご相談は下記アドレスよりお願いします。😄</h3>
-    <TextLink href="mailto:toru45s@gmail.com">toru45s@gmail.com</TextLink>
-  </div>
+  <Section heading="contact">
+    <Block
+      heading="ご依頼・ご相談は下記アドレスよりお願いします。😄"
+      layout="stack"
+    >
+      <Text size="md">
+        <TextLink href="mailto:toru45s@gmail.com">toru45s@gmail.com</TextLink>
+      </Text>
+    </Block>
+  </Section>
 </Layout>

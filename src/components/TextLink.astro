@@ -1,4 +1,5 @@
 ---
+import IconExternal from "@/components/IconExternal.astro";
 export interface Props {
   href?: string;
   isBlock?: boolean;
@@ -18,20 +19,43 @@ const isExternal = href?.indexOf("http") !== -1;
   href={href}
   target={isExternal ? "_blank" : undefined}
 >
-  <slot />
+  <span class="text-link__content"><slot /></span>
+
+  {
+    isExternal && (
+      <span class="text-link__icon">
+        <IconExternal />
+      </span>
+    )
+  }
 </a>
 
 <style lang="scss">
   .text-link {
-    display: inline;
     color: $color-primary;
     font-weight: map-get($font-weight, thin);
-    @include strike-out-line;
 
     &:hover {
-      &::after {
-        width: 100%;
+      .text-link {
+        &__content {
+          &::after {
+            width: 100%;
+          }
+        }
       }
+    }
+
+    &__content {
+      @include strike-out-line;
+    }
+
+    &__icon {
+      position: relative;
+      top: -2px;
+      left: -2px;
+      display: inline-block;
+      width: 0.6em;
+      height: 0.6em;
     }
 
     &--block {
@@ -40,8 +64,12 @@ const isExternal = href?.indexOf("http") !== -1;
     &--current {
       pointer-events: none;
 
-      &::after {
-        width: 100%;
+      .text-link {
+        &__content {
+          &::after {
+            width: 100%;
+          }
+        }
       }
     }
   }

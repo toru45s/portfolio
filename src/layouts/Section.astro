@@ -1,0 +1,27 @@
+---
+import Heading from "@/components/Heading.astro";
+export interface Props {
+  heading: string;
+}
+
+const { heading } = Astro.props;
+---
+
+<section class="section">
+  <Heading type="section" text={heading} />
+  <div class="section__content">
+    <slot />
+  </div>
+</section>
+
+<style lang="scss">
+  .section {
+    &__content {
+      margin-top: map-get($margin, 2);
+
+      display: flex;
+      flex-direction: column;
+      gap: map-get($margin, 1.5);
+    }
+  }
+</style>
