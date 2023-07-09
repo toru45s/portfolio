@@ -1,6 +1,5 @@
 ---
 import Head from "@/components/Head.astro";
-import Language from "@/components/Language.astro";
 import Navigation from "@/components/Navigation.astro";
 
 export interface Props {
@@ -18,7 +17,7 @@ const { title, current } = Astro.props;
     <div class="layout">
       <header class="layout__header">
         <Navigation current={current} />
-        <Language current="ja" />
+        <!-- <Language current="ja" /> -->
       </header>
 
       <main class="layout__main"><slot /></main>
