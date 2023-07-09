@@ -1,6 +1,6 @@
 ---
-// import Information from "@/components/Information.astro";
-// import Text from "@/components/Text.astro";
+import Information from "@/components/Information.astro";
+import Text from "@/components/Text.astro";
 
 export interface Props {
   image: string;
@@ -21,8 +21,8 @@ const { image, href, title, role, comment } = Astro.props;
   </a>
 
   <div class="work__info">
-    <!-- <Information title={title} subTitle={role} href={href} />
-    <Text size="md">{comment}</Text> -->
+    <Information title={title} subTitle={role} href={href} />
+    <Text size="md">{comment}</Text>
   </div>
 </li>
 
