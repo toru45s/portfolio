@@ -12,7 +12,7 @@ const { title, current } = Astro.props;
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
   <Head title={title} />
   <body>
     <div class="layout">
@@ -23,7 +23,61 @@ const { title, current } = Astro.props;
 
       <main class="layout__main"><slot /></main>
     </div>
-    <style lang="scss">
+    <style lang="scss" is:global>
+      html {
+        font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic",
+          system-ui, sans-serif;
+        font-size: $font-size-base;
+        font-weight: map-get($font-weight, regular);
+        background-color: $color-bg;
+        color: $color-font;
+        line-height: map-get($leading, normal);
+        font-feature-settings: "palt";
+        letter-spacing: 0.05em;
+        min-height: 100vh;
+        min-width: $min-width;
+
+        &::selection {
+          background-color: #000;
+          color: #fff;
+        }
+      }
+
+      body {
+        margin: 0;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      img {
+        width: 100%;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      p {
+        margin: 0;
+      }
+
+      ol,
+      ul {
+        list-style-type: none;
+        padding: 0;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: inherit; /* no underline */
+      }
+
+      .f-roboto {
+        font-family: "Roboto Mono", monospace;
+      }
+
       .layout {
         width: 100%;
         padding: map-get($margin, 1);
