@@ -6,15 +6,15 @@ import Layout from "@/layouts/Layout.astro";
 import Section from "@/layouts/Section.astro";
 ---
 
-<Layout title="contact| Toru Yaginuma✌🏻" current="contact">
-  <Section heading="contact">
-    <Block
-      heading="ご依頼・ご相談は下記アドレスよりお願いします。😄"
-      layout="stack"
-    >
+<Layout title="Contact" currentPage="contact" headingPage="Contact">
+  <Section heading="ご連絡先やSNSアカウントの一覧です。">
+    <Block heading="メールアドレス" layout="stack">
       <Text size="md">
         <TextLink href="mailto:toru45s@gmail.com">toru45s@gmail.com</TextLink>
       </Text>
+    </Block>
+    <Block heading="SNS" layout="stack">
+      <TextLink href="https://github.com/t-yaginuma">github</TextLink>
     </Block>
   </Section>
 </Layout>

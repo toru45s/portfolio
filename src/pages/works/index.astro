@@ -1,0 +1,13 @@
+---
+import Works from "@/components/Works.astro";
+import Layout from "@/layouts/Layout.astro";
+import Section from "@/layouts/Section.astro";
+import Text from "@/components/Text.astro";
+---
+
+<Layout title="Works" currentPage="works" headingPage="Works">
+  <Section heading="実装を担当したWebサイトやアプリの一覧です。">
+    <Text size="md">公開されているもののみ掲載しております。</Text>
+    <Works />
+  </Section>
+</Layout>
