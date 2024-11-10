@@ -3,11 +3,17 @@ import Works from "@/components/Works.astro";
 import Layout from "@/layouts/Layout.astro";
 import Section from "@/layouts/Section.astro";
 import Text from "@/components/Text.astro";
+import TyDiv from "@/layouts/TyDiv.astro";
 ---
 
 <Layout title="Works" currentPage="works" headingPage="Works">
-  <Section heading="実装を担当したWebサイトやアプリの一覧です。">
-    <Text size="md">公開されているもののみ掲載しております。</Text>
+  <Section heading="実装を担当したWebサイト">
+    <TyDiv>
+      <Text size="md">公開可能な実績のみ掲載しております。</Text>
+      <Text size="md">非公開案件などの実績は、別途スキルシートをご確認いただけますと幸いです。</Text>
+      <Text size="md">なおスキルシートへリンクは、本サイトに掲載しておりません。</Text>
+    </TyDiv>
+
     <Works />
   </Section>
 </Layout>
