@@ -1,5 +1,5 @@
 ---
-import Heading from "@/components/Heading.astro";
+import TyHeading from "@/components/TyHeading.astro";
 export interface Props {
   heading: string;
   isMaxWidth?: boolean;
@@ -8,15 +8,15 @@ export interface Props {
 const { heading, isMaxWidth } = Astro.props;
 ---
 
-<section class:list={["section", { "section--max-width": isMaxWidth }]}>
-  <Heading type="section" text={heading} />
-  <div class="section__content">
+<section class:list={["ty-section", { "ty-section--max-width": isMaxWidth }]}>
+  <TyHeading type="section" text={heading} />
+  <div class="ty-section__content">
     <slot />
   </div>
 </section>
 
 <style lang="scss">
-  .section {
+  .ty-section {
     &--max-width {
       max-width: 1280px;
     }

@@ -1,19 +1,18 @@
 ---
-import Works from "@/components/Works.astro";
-import Layout from "@/layouts/Layout.astro";
-import Section from "@/layouts/Section.astro";
-import Text from "@/components/Text.astro";
+import TyWorks from "@/components/TyWorks.astro";
+import TyLayout from "@/layouts/TyLayout.astro";
+import TySection from "@/layouts/TySection.astro";
+import TyText from "@/components/TyText.astro";
 import TyDiv from "@/layouts/TyDiv.astro";
 ---
 
-<Layout title="Works" currentPage="works" headingPage="Works">
-  <Section heading="実装を担当したWebサイト">
+<TyLayout title="Works" currentPage="works" headingPage="Works">
+  <TySection heading="実装を担当したWebサイト">
     <TyDiv>
-      <Text size="md">公開可能な実績のみ掲載しております。</Text>
-      <Text size="md">非公開案件などの実績は、別途スキルシートをご確認いただけますと幸いです。</Text>
-      <Text size="md">なおスキルシートへリンクは、本サイトに掲載しておりません。</Text>
+      <TyText size="md">公開可能な実績のみ掲載しております。</TyText>
+      <TyText size="md">非公開案件などの実績は、別途スキルシートをご確認いただけますと幸いです。</TyText>
+      <TyText size="md">なおスキルシートへリンクは、本サイトに掲載しておりません。</TyText>
     </TyDiv>
-
-    <Works />
-  </Section>
-</Layout>
+    <TyWorks />
+  </TySection>
+</TyLayout>

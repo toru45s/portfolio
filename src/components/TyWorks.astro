@@ -1,14 +1,14 @@
 ---
-import Work from "@/components/Work.astro";
+import TyWork from "@/components/TyWork.astro";
 import { getWorks } from "@/library/microcms";
 
 const response = await getWorks();
 ---
 
-<ul class="works">
+<ul class="ty-works">
   {
     response.contents.map((work) => (
-      <Work
+      <TyWork
         title={work.title}
         role={work.role}
         comment={work.comment}
@@ -20,7 +20,7 @@ const response = await getWorks();
 </ul>
 
 <style lang="scss">
-  .works {
+  .ty-works {
     position: relative;
     display: grid;
     width: 100%;

@@ -1,6 +1,6 @@
 ---
-import Information from "@/components/Information.astro";
-import TextLink from "@/components/TextLink.astro";
+import TyInformation from "@/components/TyInformation.astro";
+import TyTextLink from "@/components/TyTextLink.astro";
 
 export interface Props {
   current: "works" | "top" | "contact";
@@ -9,24 +9,24 @@ export interface Props {
 const { current } = Astro.props;
 ---
 
-<div class="navigation f-roboto">
-  <Information title="Toru Yaginuma" subTitle="Potfolio Site" />
-  <ul class="navigation__lists">
+<div class="ty-navigation f-roboto">
+  <TyInformation title="Toru Yaginuma" subTitle="Potfolio Site" />
+  <ul class="ty-navigation__lists">
     <li>
-      <TextLink href="/" isCurrent={current === "top"}>top</TextLink>
+      <TyTextLink href="/" isCurrent={current === "top"}>top</TyTextLink>
     </li>
     <li>
-      <TextLink href="/works" isCurrent={current === "works"}>works</TextLink>
+      <TyTextLink href="/works" isCurrent={current === "works"}>works</TyTextLink>
     </li>
     <li>
-      <TextLink href="/contact" isCurrent={current === "contact"}>
+      <TyTextLink href="/contact" isCurrent={current === "contact"}>
         contact
-      </TextLink>
+      </TyTextLink>
     </li>
   </ul>
 </div>
 <style lang="scss">
-  .navigation {
+  .ty-navigation {
     display: inline-block;
     background: $color-bg;
     border: 2px solid $color-primary;

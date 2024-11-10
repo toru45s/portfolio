@@ -1,7 +1,7 @@
 ---
-import Head from "@/components/Head.astro";
-import Heading from "@/components/Heading.astro";
-import Navigation from "@/components/Navigation.astro";
+import TyHead from "@/components/TyHead.astro";
+import TyHeading from "@/components/TyHeading.astro";
+import TyNavigation from "@/components/TyNavigation.astro";
 
 export interface Props {
   title: string;
@@ -14,17 +14,17 @@ const { title, currentPage, headingPage } = Astro.props;
 
 <!DOCTYPE html>
 <html lang="ja">
-  <Head
+  <TyHead
     title={`${title ? title + " |" : ""} Toru Yaginuma Portfolio Site`}
   />
   <body>
-    <div class="layout">
-      <header class="layout__header">
-        <Navigation current={currentPage} />
-        <Heading text={`${headingPage}`} type="page" />
+    <div class="ty-layout">
+      <header class="ty-layout__header">
+        <TyNavigation current={currentPage} />
+        <TyHeading text={`${headingPage}`} type="page" />
       </header>
 
-      <main class="layout__main"><slot /></main>
+      <main class="ty-layout__main"><slot /></main>
     </div>
     <style lang="scss" is:global>
       html {
@@ -81,7 +81,7 @@ const { title, currentPage, headingPage } = Astro.props;
         font-family: "Roboto Mono", monospace;
       }
 
-      .layout {
+      .ty-layout {
         width: 100%;
         padding: map-get($margin, 1);
 

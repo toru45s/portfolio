@@ -1,5 +1,5 @@
 ---
-import IconExternal from "@/components/IconExternal.astro";
+import TyIconExternal from "@/components/TyIconExternal.astro";
 export interface Props {
   href?: string;
   isBlock?: boolean;
@@ -12,26 +12,26 @@ const isExternal = href?.indexOf("http") !== -1;
 
 <a
   class:list={[
-    "text-link f-roboto",
-    { "text-link--block": isBlock },
-    { "text-link--current": isCurrent },
+    "ty-text-link f-roboto",
+    { "ty-text-link--block": isBlock },
+    { "ty-text-link--current": isCurrent },
   ]}
   href={href}
   target={isExternal ? "_blank" : undefined}
 >
-  <span class="text-link__content"><slot /></span>
+  <span class="ty-text-link__content"><slot /></span>
 
   {
     isExternal && (
-      <span class="text-link__icon">
-        <IconExternal />
+      <span class="ty-text-link__icon">
+        <TyIconExternal />
       </span>
     )
   }
 </a>
 
 <style lang="scss">
-  .text-link {
+  .ty-text-link {
     width: fit-content;
     color: $color-primary;
     font-weight: map-get($font-weight, thin);

@@ -10,25 +10,25 @@ const { size, margin, isBold } = Astro.props;
 
 <p
   class:list={[
-    "text",
-    { "text--xs": size === "xs" },
-    { "text--sm": size === "sm" },
-    { "text--md": size === "md" },
-    { "text--lg": size === "lg" },
-    { "text--xl": size === "xl" },
-    { "text--xxl": size === "xxl" },
-    { "text--margin-half": margin === 0.5 },
-    { "text--margin-full": margin === 1 },
-    { "text--margin-full-lg": margin === 1.5 },
-    { "text--margin-double": margin === 2 },
-    { "text--bold": isBold },
+    "ty-text",
+    { "ty-text--xs": size === "xs" },
+    { "ty-text--sm": size === "sm" },
+    { "ty-text--md": size === "md" },
+    { "ty-text--lg": size === "lg" },
+    { "ty-text--xl": size === "xl" },
+    { "ty-text--xxl": size === "xxl" },
+    { "ty-text--margin-half": margin === 0.5 },
+    { "ty-text--margin-full": margin === 1 },
+    { "ty-text--margin-full-lg": margin === 1.5 },
+    { "ty-text--margin-double": margin === 2 },
+    { "ty-text--bold": isBold },
   ]}
 >
   <slot />
 </p>
 
 <style lang="scss">
-  .text {
+  .ty-text {
     color: $color-font;
 
     &--xxs {

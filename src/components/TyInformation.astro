@@ -1,5 +1,5 @@
 ---
-import IconExternal from "@/components/IconExternal.astro";
+import TyIconExternal from "@/components/TyIconExternal.astro";
 export interface Props {
   title: string;
   subTitle?: string;
@@ -10,31 +10,31 @@ export interface Props {
 const { title, subTitle, isTitle, href } = Astro.props;
 ---
 
-<div class:list={["info"]}>
+<div class:list={["ty-info"]}>
   {
     href && (
       <a
         href={href}
-        class="info__title info__title--link f-roboto"
+        class="ty-info__title ty-info__title--link f-roboto"
         target="_blank"
       >
         <span> {title}</span>
-        <span class="info__icon">
-          <IconExternal />
+        <span class="ty-info__icon">
+          <TyIconExternal />
         </span>
       </a>
     )
   }
 
-  {isTitle && !href && <span class="info__title f-roboto">{title}</span>}
+  {isTitle && !href && <span class="ty-info__title f-roboto">{title}</span>}
 
-  {!isTitle && !href && <span class="info__title f-roboto">{title}</span>}
+  {!isTitle && !href && <span class="ty-info__title f-roboto">{title}</span>}
 
-  <p class="info__subtitle f-roboto">{subTitle}</p>
+  <p class="ty-info__subtitle f-roboto">{subTitle}</p>
 </div>
 
 <style lang="scss">
-  .info {
+  .ty-info {
     &__title {
       position: relative;
       font-size: map-get($font-size, md);

@@ -1,21 +1,21 @@
 ---
-import Text from "@/components/Text.astro";
-import TextLink from "@/components/TextLink.astro";
-import Block from "@/layouts/Block.astro";
-import Layout from "@/layouts/Layout.astro";
-import Section from "@/layouts/Section.astro";
+import TyText from "@/components/TyText.astro";
+import TyTextLink from "@/components/TyTextLink.astro";
+import TyBlock from "@/layouts/TyBlock.astro";
+import TyLayout from "@/layouts/TyLayout.astro";
+import TySection from "@/layouts/TySection.astro";
 ---
 
-<Layout title="Contact" currentPage="contact" headingPage="Contact">
-  <Section heading="連絡先やSNSアカウント一覧">
-    <Block heading="メールアドレス" layout="stack">
-      <Text size="md">
-        <TextLink href="mailto:toru45s@gmail.com">toru45s@gmail.com</TextLink>
+<TyLayout title="Contact" currentPage="contact" headingPage="Contact">
+  <TySection heading="連絡先やSNSアカウント一覧">
+    <TyBlock heading="メールアドレス" layout="stack">
+      <TyText size="md">
+        <TyTextLink href="mailto:toru45s@gmail.com">toru45s@gmail.com</TyTextLink>
       </Text>
-    </Block>
-    <Block heading="SNS" layout="stack">
-      <TextLink href="https://github.com/t-yaginuma">github</TextLink>
-      <TextLink href="https://www.linkedin.com/in/toru-yaginuma-8124a8277/">linkedin</TextLink>
-    </Block>
-  </Section>
-</Layout>
+    </TyBlock>
+    <TyBlock heading="SNS" layout="stack">
+      <TyTextLink href="https://github.com/t-yaginuma">github</TyTextLink>
+      <TyTextLink href="https://www.linkedin.com/in/toru-yaginuma-8124a8277/">linkedin</TyTextLink>
+    </TyBlock>
+  </TySection>
+</TyLayout>

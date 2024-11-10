@@ -1,5 +1,5 @@
 ---
-import TextLink from "@/components/TextLink.astro";
+import TyTextLink from "@/components/TyTextLink.astro";
 export interface Props {
   current: "ja" | "en";
 }
@@ -7,14 +7,14 @@ export interface Props {
 const { current } = Astro.props;
 ---
 
-<div class="language">
-  <TextLink href="/en" isCurrent={current === "en"}>EN</TextLink>
+<div class="ty-language">
+  <TyTextLink href="/en" isCurrent={current === "en"}>EN</TyTextLink>
   |
-  <TextLink href="/" isCurrent={current === "ja"}>JA</TextLink>
+  <TyTextLink href="/" isCurrent={current === "ja"}>JA</TyTextLink>
 </div>
 
 <style lang="scss">
-  .language {
+  .ty-language {
     color: $color-primary;
 
     font-size: map-get($font-size, md);

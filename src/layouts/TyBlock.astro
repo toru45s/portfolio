@@ -1,5 +1,5 @@
 ---
-import Heading from "@/components/Heading.astro";
+import TyHeading from "@/components/TyHeading.astro";
 export interface Props {
   heading: string;
   isSubBlock?: boolean;
@@ -9,13 +9,13 @@ export interface Props {
 const { heading, isSubBlock, layout } = Astro.props;
 ---
 
-<div class="block">
-  <Heading type={isSubBlock ? "sub-block" : "block"} text={heading} />
+<div class="ty-block">
+  <TyHeading type={isSubBlock ? "sub-block" : "block"} text={heading} />
   <div
     class:list={[
-      "block__content",
-      { "block__content--stack": layout === "stack" },
-      { "block__content--sub": isSubBlock },
+      "ty-block__content",
+      { "ty-block__content--stack": layout === "stack" },
+      { "ty-block__content--sub": isSubBlock },
     ]}
   >
     <slot />
@@ -23,7 +23,7 @@ const { heading, isSubBlock, layout } = Astro.props;
 </div>
 
 <style lang="scss">
-  .block {
+  .ty-block {
     &__content {
       margin-top: map-get($margin, 0.75);
       &--stack {
