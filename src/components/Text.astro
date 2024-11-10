@@ -2,9 +2,10 @@
 export interface Props {
   size: "xxs" | "xs" | "sm" | "md" | "lg" | "xl" | "xxl";
   margin?: 0.5 | 1 | 1.5 | 2;
+  isBold?: boolean;
 }
 
-const { size, margin } = Astro.props;
+const { size, margin, isBold } = Astro.props;
 ---
 
 <p
@@ -20,6 +21,7 @@ const { size, margin } = Astro.props;
     { "text--margin-full": margin === 1 },
     { "text--margin-full-lg": margin === 1.5 },
     { "text--margin-double": margin === 2 },
+    { "text--bold": isBold },
   ]}
 >
   <slot />
@@ -71,6 +73,10 @@ const { size, margin } = Astro.props;
 
     &--margin-double {
       margin-top: map-get($margin, 2);
+    }
+
+    &--bold {
+      font-weight: map-get($font-weight, bold);
     }
   }
 </style>
