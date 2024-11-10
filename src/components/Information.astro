@@ -19,7 +19,6 @@ const { title, subTitle, isTitle, href } = Astro.props;
         target="_blank"
       >
         <span> {title}</span>
-
         <span class="info__icon">
           <IconExternal />
         </span>
@@ -27,9 +26,9 @@ const { title, subTitle, isTitle, href } = Astro.props;
     )
   }
 
-  {isTitle && !href && <h1 class="info__title f-roboto">{title}</h1>}
+  {isTitle && !href && <span class="info__title f-roboto">{title}</span>}
 
-  {!isTitle && !href && <h2 class="info__title f-roboto">{title}</h2>}
+  {!isTitle && !href && <span class="info__title f-roboto">{title}</span>}
 
   <p class="info__subtitle f-roboto">{subTitle}</p>
 </div>
@@ -51,7 +50,7 @@ const { title, subTitle, isTitle, href } = Astro.props;
     &__subtitle {
       color: $color-primary;
       font-size: map-get($font-size, md);
-      font-weight: map-get($font-weight, bold);
+      font-weight: map-get($font-weight, regular);
     }
 
     &__icon {
