@@ -1,23 +1,27 @@
 ---
 import Head from "@/components/Head.astro";
+import Heading from "@/components/Heading.astro";
 import Navigation from "@/components/Navigation.astro";
 
 export interface Props {
   title: string;
-  current: "works" | "about" | "contact";
+  currentPage: "works" | "top" | "contact";
+  headingPage?: string;
 }
 
-const { title, current } = Astro.props;
+const { titlePage, currentPage, headingPage } = Astro.props;
 ---
 
 <!DOCTYPE html>
 <html lang="ja">
-  <Head title={title} />
+  <Head
+    title={`${titlePage ? titlePage + " |" : ""} Toru Yaginuma Portfolio Site`}
+  />
   <body>
     <div class="layout">
       <header class="layout__header">
-        <Navigation current={current} />
-        <!-- <Language current="ja" /> -->
+        <Navigation current={currentPage} />
+        <Heading text={`${headingPage}`} type="page" />
       </header>
 
       <main class="layout__main"><slot /></main>
