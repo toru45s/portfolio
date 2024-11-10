@@ -2,12 +2,13 @@
 import Heading from "@/components/Heading.astro";
 export interface Props {
   heading: string;
+  isMaxWidth?: boolean;
 }
 
-const { heading } = Astro.props;
+const { heading, isMaxWidth } = Astro.props;
 ---
 
-<section class="section">
+<section class:list={["section", { "section--max-width": isMaxWidth }]}>
   <Heading type="section" text={heading} />
   <div class="section__content">
     <slot />
@@ -16,8 +17,12 @@ const { heading } = Astro.props;
 
 <style lang="scss">
   .section {
+    &--max-width {
+      max-width: 1280px;
+    }
+
     &__content {
-      margin-top: map-get($margin, 2);
+      margin-top: map-get($margin, 1);
 
       display: flex;
       flex-direction: column;
