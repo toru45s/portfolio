@@ -1,11 +1,13 @@
 ---
 export interface Props {
-  type?: "section" | "block" | "sub-block" | "sub-sub-block";
+  type?: "page" | "section" | "block" | "sub-block" | "sub-sub-block";
   text?: string;
 }
 
 const { type = "section", text } = Astro.props;
 ---
+
+{type === "page" && <h1 class:list={["heading heading--page"]}>{text}</h1>}
 
 {
   type === "section" && (
@@ -35,12 +37,17 @@ const { type = "section", text } = Astro.props;
 
 <style lang="scss">
   .heading {
-    &--section {
+    &--page {
       font-size: map-get($font-size, xl);
+      color: $color-primary;
+    }
+
+    &--section {
+      font-size: map-get($font-size, lg);
     }
 
     &--block {
-      font-size: map-get($font-size, lg);
+      font-size: map-get($font-size, md);
     }
 
     &--sub-block {
