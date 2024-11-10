@@ -3,26 +3,26 @@ import Information from "@/components/Information.astro";
 import TextLink from "@/components/TextLink.astro";
 
 export interface Props {
-  current: "works" | "about" | "contact";
+  current: "works" | "top" | "contact";
 }
 
 const { current } = Astro.props;
 ---
 
 <div class="navigation f-roboto">
-  <Information title="Toru Yaginuma✌🏻" subTitle="Frontend Developer" />
+  <Information title="Toru Yaginuma" subTitle="Potfolio Site" />
   <ul class="navigation__lists">
     <li>
-      <TextLink href="/" isCurrent={current === "works"}>works</TextLink>
+      <TextLink href="/" isCurrent={current === "top"}>top</TextLink>
     </li>
-    <!-- <li>
-      <TextLink href="/about" isCurrent={current === "about"}>about</TextLink>
+    <li>
+      <TextLink href="/works" isCurrent={current === "works"}>works</TextLink>
     </li>
     <li>
       <TextLink href="/contact" isCurrent={current === "contact"}>
         contact
       </TextLink>
-    </li> -->
+    </li>
   </ul>
 </div>
 <style lang="scss">
