@@ -1,0 +1,13 @@
+---
+export interface Props {}
+
+const {} = Astro.props;
+---
+
+<div class:list={["ty-div"]}>
+  <slot />
+</div>
+
+<style lang="scss">
+  .ty-div {}
+</style>
