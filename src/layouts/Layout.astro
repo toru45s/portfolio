@@ -9,13 +9,13 @@ export interface Props {
   headingPage?: string;
 }
 
-const { titlePage, currentPage, headingPage } = Astro.props;
+const { title, currentPage, headingPage } = Astro.props;
 ---
 
 <!DOCTYPE html>
 <html lang="ja">
   <Head
-    title={`${titlePage ? titlePage + " |" : ""} Toru Yaginuma Portfolio Site`}
+    title={`${title ? title + " |" : ""} Toru Yaginuma Portfolio Site`}
   />
   <body>
     <div class="layout">
