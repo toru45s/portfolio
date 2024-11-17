@@ -1,16 +1,26 @@
 ---
+import { Astro } from "astro";
 import TyTextLink from "@/components/TyTextLink.astro";
 export interface Props {
-  current: "ja" | "en";
+  lang: "ja" | "en";
 }
 
-const { current } = Astro.props;
+const { lang } = Astro.props;
+
+const currentPath = Astro.url.pathname;
+
+// get href depends on the current page.
+const getHref = (isJa?: boolean)=> {
+  const href = currentPath.includes("/ja") ? currentPath.replace("/ja", "") : currentPath
+  const prefix =  isJa ? "/ja" : ""
+  return `${prefix}${href ? href : "/"}`
+}
 ---
 
 <div class="ty-language">
-  <TyTextLink href="/en" isCurrent={current === "en"}>EN</TyTextLink>
+  <TyTextLink href={getHref()} isCurrent={lang === "en"}>EN</TyTextLink>
   |
-  <TyTextLink href="/" isCurrent={current === "ja"}>JA</TyTextLink>
+  <TyTextLink href={getHref(true)} isCurrent={lang === "ja"}>JA</TyTextLink>
 </div>
 
 <style lang="scss">

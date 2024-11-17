@@ -4,22 +4,23 @@ import TyTextLink from "@/components/TyTextLink.astro";
 
 export interface Props {
   current: "works" | "top" | "contact";
+  lang?: "ja" | "en";
 }
 
-const { current } = Astro.props;
+const { current,lang } = Astro.props;
 ---
 
 <div class="ty-navigation f-roboto">
   <TyInformation title="Toru Yaginuma" subTitle="Potfolio Site" />
   <ul class="ty-navigation__lists">
     <li>
-      <TyTextLink href="/" isCurrent={current === "top"}>top</TyTextLink>
+      <TyTextLink href={lang === "en" ? "/" : "/ja"} isCurrent={current === "top"}>top</TyTextLink>
     </li>
     <li>
-      <TyTextLink href="/works" isCurrent={current === "works"}>works</TyTextLink>
+      <TyTextLink href={lang === "en" ? "/works" : "/ja/works"} isCurrent={current === "works"}>works</TyTextLink>
     </li>
     <li>
-      <TyTextLink href="/contact" isCurrent={current === "contact"}>
+      <TyTextLink href={lang === "en" ? "/contact" : "/ja/contact"} isCurrent={current === "contact"}>
         contact
       </TyTextLink>
     </li>

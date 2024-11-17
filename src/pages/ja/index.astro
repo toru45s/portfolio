@@ -1,0 +1,54 @@
+---
+import TyText from "@/components/TyText.astro";
+import TyBlock from "@/layouts/TyBlock.astro";
+import TyLayout from "@/layouts/TyLayout.astro";
+import TySection from "@/layouts/TySection.astro";
+import TyDiv from "@/layouts/TyDiv.astro";
+---
+
+<TyLayout title="" currentPage="top" headingPage="Top" lang="ja">
+  <TySection
+    heading="私について"
+    isMaxWidth
+  >
+  <TyBlock heading="はじめまして、柳沼 亨 (ヤギヌマトオル)と申します。" layout="stack">
+    <TyText size="md">
+      私はウェブ開発者として約5年間、受託のウェブ制作・開発会社で開発経験を積んできました。
+    </TyText>
+    <TyText size="md">
+      フルスタック開発者としてプロジェクトに関わっていくことを好んでいますが、中でもユーザーとAPIを繋ぐ責務を請け負う、フロントエンド領域での開発を最も好んでおり、デザイナーと協力してつくる美しいUI画面の開発や、再利用しやすいコンポーネント、ロジックの設計・開発を行うことに情熱を持っています。また、Laravelを用いたバックエンド開発や、前職のネットワークエンジニアとしての経験を活かしたAWS中心としたインフラ構築などの実装も行い、プロジェクト毎に様々な経験を積んできました。
+    </TyText>
+    <TyText size="md">
+      私の特徴を3点挙げさせていただくと、以下になります。
+    </TyText>
+    <TyDiv>
+      <TyText size="md" isBold>
+        好奇心が強く主体性があります。
+      </TyText>
+      <TyText size="md">
+        未知、未体験の事柄を知ったり体験することが好きで、日々勉強や活動を続けています。
+      </TyText>
+      <TyText size="md">
+        私は最初のキャリアとして音楽業界で活動を行っておりましたが、ウェブデベロッパーへ転身しフロントエンドを中心にフルスタックな開発経験を積んでいる実績がございます。
+      </TyText>
+    </TyDiv>
+    <TyDiv>
+      <TyText size="md" isBold>
+        優先順位を立てるのが得意です。
+      </TyText>
+      <TyText size="md">
+        得にやらない事の選別に力を入れており、得意な事に時間を費やすことで、パフォーマンスを上げられるようにしています。やらないことを選別することは、自分のやるべきことの土壌づくりであると考えています。
+      </TyText>
+    </TyDiv>
+    <TyDiv>
+      <TyText size="md" isBold>
+        コミュニケーションにおいて強い表現を避けます。
+      </TyText>
+      <TyText size="md">
+        文字ベースのコミュニケーションは冷たい印象になりがちだと考えています。そのため、できるだけ、シンプルかつ柔らかい表現を心がけています。また必要あれば、発言の背景なども付け加えるようにし、誤解をできるだけ避けるようにしています。
+      </TyText>
+    </TyDiv>
+    <TyText size="md">よろしくお願いいたします🙇‍♂️</TyText>
+  </TyBlock>
+  </TySection>
+</TyLayout>

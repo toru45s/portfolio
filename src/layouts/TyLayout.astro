@@ -1,15 +1,18 @@
 ---
 import TyHead from "@/components/TyHead.astro";
 import TyHeading from "@/components/TyHeading.astro";
+import TyLanguage from "@/components/TyLanguage.astro";
 import TyNavigation from "@/components/TyNavigation.astro";
+import TyDiv from "./TyDiv.astro";
 
 export interface Props {
   title: string;
   currentPage: "works" | "top" | "contact";
   headingPage?: string;
+  lang?: "ja" | "en";
 }
 
-const { title, currentPage, headingPage } = Astro.props;
+const { title, currentPage, headingPage, lang } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -20,7 +23,8 @@ const { title, currentPage, headingPage } = Astro.props;
   <body>
     <div class="ty-layout">
       <header class="ty-layout__header">
-        <TyNavigation current={currentPage} />
+        <TyNavigation current={currentPage} lang={lang} />
+        <TyLanguage lang={lang} />
         <TyHeading text={`${headingPage}`} type="page" />
       </header>
 
