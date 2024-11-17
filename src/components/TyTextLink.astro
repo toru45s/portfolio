@@ -20,7 +20,7 @@ const isExternal = href?.indexOf("http") !== -1;
   target={isExternal ? "_blank" : undefined}
 >
   <span class="ty-text-link__content"><slot /></span>
-  
+
   {
     isExternal && (
       <span class="ty-text-link__icon">

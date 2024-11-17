@@ -15,11 +15,9 @@ export interface Props {
 const { title, currentPage, headingPage, lang } = Astro.props;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
-  <TyHead
-    title={`${title ? title + " |" : ""} Toru Yaginuma Portfolio Site`}
-  />
+  <TyHead title={`${title ? title + " |" : ""} Toru Yaginuma Portfolio Site`} />
   <body>
     <div class="ty-layout">
       <header class="ty-layout__header">

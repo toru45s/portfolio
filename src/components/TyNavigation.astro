@@ -7,20 +7,29 @@ export interface Props {
   lang?: "ja" | "en";
 }
 
-const { current,lang } = Astro.props;
+const { current, lang } = Astro.props;
 ---
 
 <div class="ty-navigation f-roboto">
   <TyInformation title="Toru Yaginuma" subTitle="Potfolio Site" />
   <ul class="ty-navigation__lists">
     <li>
-      <TyTextLink href={lang === "en" ? "/" : "/ja"} isCurrent={current === "top"}>top</TyTextLink>
+      <TyTextLink
+        href={lang === "en" ? "/" : "/ja"}
+        isCurrent={current === "top"}>top</TyTextLink
+      >
     </li>
     <li>
-      <TyTextLink href={lang === "en" ? "/works" : "/ja/works"} isCurrent={current === "works"}>works</TyTextLink>
+      <TyTextLink
+        href={lang === "en" ? "/works" : "/ja/works"}
+        isCurrent={current === "works"}>works</TyTextLink
+      >
     </li>
     <li>
-      <TyTextLink href={lang === "en" ? "/contact" : "/ja/contact"} isCurrent={current === "contact"}>
+      <TyTextLink
+        href={lang === "en" ? "/contact" : "/ja/contact"}
+        isCurrent={current === "contact"}
+      >
         contact
       </TyTextLink>
     </li>

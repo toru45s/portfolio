@@ -1,7 +1,7 @@
 ---
 import TyInformation from "@/components/TyInformation.astro";
 import TyText from "@/components/TyText.astro";
-import { Image } from 'astro:assets';
+import { Image } from "astro:assets";
 
 export interface Props {
   image: string;
@@ -14,16 +14,16 @@ export interface Props {
 const { image, href, title, role, comment } = Astro.props;
 ---
 
-<li class=ty-work">
+<li class='ty-work"'>
   <a class="ty-work__anchor" href={href} target="_blank">
     <div class="ty-work__image">
-      <Image src={image} alt={title} width="450" height="225"/>
+      <Image src={image} alt={title} width="450" height="225" />
     </div>
   </a>
 
   <div class="ty-work__info">
     <TyInformation title={title} subTitle={role} href={href} />
-    <TyText size="md">{comment}</Text>
+    <TyText size="md">{comment}</TyText>
   </div>
 </li>
 
