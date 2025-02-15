@@ -8,25 +8,19 @@
   }
 }
 
-/*
- * メディアクエリを返す
-*/
+// media query
 @mixin mq($breakpoint) {
   @media #{map-get($mq-breakpoint, $breakpoint)} {
     @content;
   }
 }
 
-/*
- * vw計算
-*/
+// calculate vw
 @function vw($width: 0) {
   @return math.div($width, $artboard-width) * 100vw;
 }
 
-/*
- * %計算
-*/
+// calculate %
 @function percent($width: 0) {
   @return math.div($width, $artboard-width) * 100%;
 }
