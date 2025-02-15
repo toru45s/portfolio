@@ -7,8 +7,8 @@ export interface Props {
   image: string;
   title: string;
   role: string;
-  comment: string;
   href: string;
+  comment?: string;
 }
 
 const { image, href, title, role, comment } = Astro.props;
@@ -23,7 +23,9 @@ const { image, href, title, role, comment } = Astro.props;
 
   <div class="ty-work__info">
     <TyInformation title={title} subTitle={role} href={href} />
-    <TyText size="md">{comment}</TyText>
+    {
+      comment && <TyText size="md">{comment}</TyText>  
+    }
   </div>
 </li>
 

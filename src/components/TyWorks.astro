@@ -1,8 +1,15 @@
 ---
 import TyWork from "@/components/TyWork.astro";
 import { getWorks } from "@/library/microcms";
+import { undefined } from "astro:schema";
 
 const response = await getWorks();
+
+export interface Props {
+  isHideComments?: boolean;
+}
+
+const { isHideComments } = Astro.props;
 ---
 
 <ul class="ty-works">
@@ -11,7 +18,7 @@ const response = await getWorks();
       <TyWork
         title={work.title}
         role={work.role}
-        comment={work.comment}
+        comment={isHideComments ? undefined : work.comment}
         image={work.image.url}
         href={work.url}
       />
