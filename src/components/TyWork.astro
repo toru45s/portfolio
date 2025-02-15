@@ -8,7 +8,7 @@ export interface Props {
   title: string;
   role: string;
   href: string;
-  comment?: string;
+  comment: string | null;
 }
 
 const { image, href, title, role, comment } = Astro.props;

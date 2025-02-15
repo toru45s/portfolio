@@ -18,7 +18,7 @@ const { isHideComments } = Astro.props;
       <TyWork
         title={work.title}
         role={work.role}
-        comment={isHideComments ? undefined : work.comment}
+        comment={isHideComments ? null: work.comment}
         image={work.image.url}
         href={work.url}
       />
