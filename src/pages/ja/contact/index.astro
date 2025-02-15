@@ -4,20 +4,21 @@ import TyTextLink from "@/components/TyTextLink.astro";
 import TyBlock from "@/layouts/TyBlock.astro";
 import TyLayout from "@/layouts/TyLayout.astro";
 import TySection from "@/layouts/TySection.astro";
+import { CONTACT } from "@/constants/data";
 ---
 
 <TyLayout title="Contact" currentPage="contact" headingPage="Contact" lang="ja">
   <TySection heading="連絡先やSNSアカウント一覧">
     <TyBlock heading="メールアドレス" layout="stack">
       <TyText size="md">
-        <TyTextLink href="mailto:toru45s@gmail.com"
-          >toru45s@gmail.com</TyTextLink
+        <TyTextLink href={`mailto:${CONTACT.email}`}
+          >{CONTACT.email}</TyTextLink
         >
       </TyText>
     </TyBlock>
     <TyBlock heading="SNS" layout="stack">
-      <TyTextLink href="https://github.com/toru45s">github</TyTextLink>
-      <TyTextLink href="https://www.linkedin.com/in/toru-yaginuma-8124a8277/"
+      <TyTextLink href={CONTACT.github}>github</TyTextLink>
+      <TyTextLink href={CONTACT.linkedin}
         >linkedin</TyTextLink
       >
     </TyBlock>
